@@ -1,0 +1,19 @@
+
+name: Run test shell.
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4  
+      - name: Run test script
+        run: ./test.sh
