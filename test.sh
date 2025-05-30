@@ -39,6 +39,9 @@ test 555 999
 echo "--- 異常系のテストを行います ---"
 
 # 異常系
+test_error 2.1 3
+test_error 2 3.5
+test_error 2.1 3.5
 test_error 9
 test_error x 6
 test_error 5x 6
