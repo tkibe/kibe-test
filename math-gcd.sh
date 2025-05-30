@@ -38,6 +38,13 @@ if ! [[ "$1" =~ ^[0-9]+$ ]] || ! [[ "$2" =~ ^[0-9]+$ ]]; then
     exit 1
 fi
 
+# 極端に大きな数字のチェック
+MAX_INT=$(echo "2^63-1" | bc)
+if [ $(echo "$1 > $MAX_INT" | bc) -eq 1 ] || [ $(echo "$2 > $MAX_INT" | bc) -eq 1 ]; then
+    echo "${MAX_INT}以下の正の整数を指定してください。"
+    exit 1
+fi
+
 # 0チェック
 if [ "$1" -eq 0 ] || [ "$2" -eq 0 ]; then
     echo "0は無効な入力です。正の整数を指定してください。"

@@ -29,20 +29,24 @@ echo "======================"
 echo "===== テスト開始 ====="
 echo "======================"
 
-echo "--- 正常系のテストを行います ---"
+echo "--- 正常系 ---"
 
 # 正常系
 test 2 4
 test 123 45
 test 555 999
 
-echo "--- 異常系のテストを行います ---"
+echo "--- 異常系 ---"
 
 # 異常系
 test_error 2.1 3
 test_error 2 3.5
 test_error 2.1 3.5
 test_error 9
+test_error -123 456
+test_error 123 -456
+test_error 9999999999999999999 9999999999999999999
+test_error 9 9 9
 test_error x 6
 test_error 5x 6
 test_error 2 y
